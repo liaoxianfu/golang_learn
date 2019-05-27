@@ -1,4 +1,9 @@
-package reflect_my
+package reflect_learn
+
+import (
+	"fmt"
+	"reflect"
+)
 
 // 反射是指在程序运行期对程序本身进行访问和修改的能力。
 // 程序在编译时，变量被转换为内存地址，
@@ -18,3 +23,41 @@ package reflect_my
 两部分组成，并且reflect包提供了reflect.TypeOf和reflect.ValueOf
 两个函数来获取任意对象的Value和Type。
 */
+
+
+
+func reflectType(x interface{}){
+	t:=reflect.TypeOf(x)
+	fmt.Println(t)
+	v:=reflect.ValueOf(x)
+	fmt.Println(v)
+}
+
+func Test1_1(){
+	var x int = 1
+	reflectType(x)
+}
+
+
+// type name 和type kind
+
+/*
+使用type关键字构造很多自定义类型，而种类（Kind）就是指底层的类型，
+但在反射中，当需要区分指针、结构体等大品种的类型时，就会用到种类（
+Kind）。 举个例子，我们定义了两个指针类型和两个结构体类型，
+通过反射查看它们的类型和种类。
+*/
+
+type myInt int64
+
+func Test1_2(){
+	var a *float32 // 指针
+	var b myInt    // 自定义类型
+	var c rune     // 类型别名
+	reflectType(a) // type: kind:ptr
+	reflectType(b) // type:myInt kind:int64
+	reflectType(c) // type:int32 kind:int32
+	
+
+
+}
