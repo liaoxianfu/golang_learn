@@ -50,9 +50,6 @@ func makeStrudentList()*[]Student{
 
 
 
-func Test18(){
-	
-}
 
 
 

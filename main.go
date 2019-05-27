@@ -14,6 +14,6 @@ func main() {
 	// learn.Test5()
 	// learn.Test8()
 	// learn.Test9()
-	learn.Test5_1()
+	learn.Test7_6()
 	
 }
